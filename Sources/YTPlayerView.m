@@ -905,7 +905,7 @@ createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration
 
 - (WKWebView *)createNewWebView {
   WKWebViewConfiguration *webViewConfiguration = [[WKWebViewConfiguration alloc] init];
-  webViewConfiguration.allowsInlineMediaPlayback = YES;
+//  webViewConfiguration.allowsInlineMediaPlayback = YES;
   webViewConfiguration.mediaTypesRequiringUserActionForPlayback = WKAudiovisualMediaTypeNone;
     WKUserScript* dropSharedWorkersScript = [[WKUserScript alloc] initWithSource:@"delete window.SharedWorker;" injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:false];
     [webViewConfiguration.userContentController addUserScript:dropSharedWorkersScript];
