@@ -907,6 +907,9 @@ createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration
   WKWebViewConfiguration *webViewConfiguration = [[WKWebViewConfiguration alloc] init];
   webViewConfiguration.allowsInlineMediaPlayback = YES;
   webViewConfiguration.mediaTypesRequiringUserActionForPlayback = WKAudiovisualMediaTypeNone;
+    WKUserScript* dropSharedWorkersScript = [[WKUserScript alloc] initWithSource:@"delete window.SharedWorker;" injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:true];
+    [webViewConfiguration.userContentController addUserScript:dropSharedWorkersScript];
+    
   WKWebView *webView = [[WKWebView alloc] initWithFrame:self.bounds
                                           configuration:webViewConfiguration];
   webView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
